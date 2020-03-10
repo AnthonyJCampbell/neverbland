@@ -1,68 +1,38 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# NeverBland
 
-## Available Scripts
+## HOME
+- User should see header with general statement about the site
+- User should see a list of the latest ~30 episodes that were added to the database
+- User should see an image, the show title, and episode title + number on each individual card.
+- User should be able to click the card and get taken to the respective ShowPage (show/:id)
+- User should be able to open a dropdown that allows a user to pick the scheduling for a different country
+- The default is US
 
-In the project directory, you can run:
+- When clicked on show, take to show/:i
 
-### `npm start`
+## SHOW/:ID
+- User should see a 'back' button, which leads back to Home
+- User should see a header with image related to the show, the rating, the title, and the summary (all from the Schedule endpoint)
+- User should see a header called 'show info' 
+- User should be able to click 'show info', which reveals a list of some of the general info related to the show
+- User should see a header called 'Actors'/'Starring'
+- User should be able to click 'Actors', which reveals a list of the 4 most prominent actors on the show
+- User should be able to see a list of episodes of the latest season of the show.
+- User should be presented with a dropdown that allows the user to select different seasons, which updates the data.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- Dropdown with +/- 10 countries. When clicked, rerun the schedule query for all shows with the specified country code
+    - US: us
+    - GB: gb
+    - CANADA: ca
+    - NETHERLANDS: nl
+    - GERMANY: de
+    - SPAIN: es
+    - FRANCE: fr
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+### What Data will we have to request?
+- All shows by country-id (US by default).
+    - Find a way to introduce pagination / lazy-loading
+- Cast of show (based on show_id)
+- Episodes of latest season of show (based on show_id)
+Make sure you use embedded URLS to reduce the number of required API requests

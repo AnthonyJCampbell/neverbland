@@ -6,7 +6,7 @@ import HomePage from "./routes/HomePage";
 import ShowPage from "./routes/ShowPage";
 
 import Header from "./components/Header";
-import Footer from "./components/Footer"
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -19,10 +19,10 @@ function App() {
           <Redirect to="/" />
         </Switch>
       </Router>
-      <br/><br/><br/>
+      <br /><br /><br />
       <Footer />
     </div>
   );
 }
 
-export default App;
+export default App

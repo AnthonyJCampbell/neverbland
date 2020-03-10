@@ -3,6 +3,7 @@
 ## HOME
 - User should see header with general statement about the site
 - User should see a list of the latest ~30 episodes that were added to the database
+- A message is visible while the episodes are being fetched / if there's some issue with the request
 - User should see an image, the show title, and episode title + number on each individual card.
 - User should be able to click the card and get taken to the respective ShowPage (show/:id)
 - User should be able to open a dropdown that allows a user to pick the scheduling for a different country

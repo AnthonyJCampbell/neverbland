@@ -1,8 +1,14 @@
-import React from 'react';
+import React from "react";
+import EpisodeCard from "../EpisodeCard";
 
 const CardContainer = () => {
     return (
-        <div>CardContainer</div>
+        <div>
+            <p>Last Added Shows</p>
+            <div>
+                <EpisodeCard />
+            </div>
+        </div>
     )
 }
 

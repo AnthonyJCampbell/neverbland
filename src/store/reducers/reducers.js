@@ -8,6 +8,8 @@ const initialState = {
     episodes: [],
     episode_ids: {},
     selectedCountry: "us",
+    seasonIds: [],
+    seasonEpisodes: [],
 };
 
 const myReducer = (state = initialState, action) => {
@@ -18,11 +20,30 @@ const myReducer = (state = initialState, action) => {
                 episodes: state.episodes.concat(action.episodes)
             };
 
+        case actionCreators.OVERRIDE_EPISODES:
+            return {
+                ...state,
+                episodes: action.episodes
+            };
+
         case actionCreators.SELECTING_COUNTRY:
             return {
                 ...state,
                 selectedCountry: action.selectedCountry
             };
+
+        case actionCreators.FETCH_SEASON_IDS:
+            return {
+                ...state,
+                seasonIds: action.seasonIds
+            };
+
+        case actionCreators.FETCH_SEASON_EPISODES:
+            return {
+                ...state,
+                seasonEpisodes: action.seasonEpisodes
+            };
+
 
         default:
             return state;

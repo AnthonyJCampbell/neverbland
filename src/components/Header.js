@@ -12,7 +12,7 @@ const Header = () => {
         <StyledHeader>
             <h1>TV Bland</h1>
             {location.pathname !== "/" ?
-                <Link className="backButton" visible={location.pathname !== "/"} to="/">BACK</Link>
+                <Link className="backButton" to="/">BACK</Link>
                 :
                 null
             }

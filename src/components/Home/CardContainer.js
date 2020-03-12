@@ -7,7 +7,7 @@ const CardContainer = () => {
 
     const generateEpisodeCards = () => {
         return episodes.map(ep => 
-            <EpisodeCard episode={ep} />    
+            <EpisodeCard key={ep.id} episode={ep} />    
         )
     }
     return (

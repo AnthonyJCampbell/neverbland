@@ -39,7 +39,7 @@ export const fetchShowInfo = (showId) => (dispatch) => {
             })
             const seasons = data._embedded.seasons
             // Call fetchSeasonEpisodes with last entry in the array (i.e. the most recent one)
-            dispatch(fetchSeasonEpisodes(seasons[seasons.length - 1].id))
+            dispatch(fetchSeasonEpisodes(seasons[0].id))
 
         })
         .catch((error) => {
@@ -47,7 +47,7 @@ export const fetchShowInfo = (showId) => (dispatch) => {
         })
 }
 
-export const fetchSeasonEpisodes = (seasonId = 13440) => (dispatch) => {
+export const fetchSeasonEpisodes = (seasonId) => (dispatch) => {
     fetch(`http://api.tvmaze.com/seasons/${seasonId}/episodes`)
         .then((response) => response.json())
         .then((data) => {

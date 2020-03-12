@@ -30,7 +30,7 @@ export const fetchEpisodes = (selectedCountry = "us", override = false) => (disp
 };
 
 export const fetchShowInfo = (showId) => (dispatch) => {
-    fetch(`http://api.tvmaze.com/shows/${showId}?embed=seasons`)
+    fetch(`http://api.tvmaze.com/shows/${showId}?embed[]=seasons&embed[]=cast`)
         .then((response) => response.json())
         .then((data) => {
             dispatch({

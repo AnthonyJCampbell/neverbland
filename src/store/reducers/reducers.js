@@ -38,7 +38,7 @@ const myReducer = (state = initialState, action) => {
             return {
                 ...state,
                 showInfo: action.showInfo,
-                seasons: action.showInfo._embedded.seasons
+                seasons: action.showInfo._embedded.seasons,
             };
 
         case actionCreators.FETCH_SEASON_EPISODES:

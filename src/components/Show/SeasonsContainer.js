@@ -39,7 +39,12 @@ const SeasonsContainer = () => {
             <p>Latest Episodes</p>
             <select value={currentSeason} onChange={changeSeasonHandler}>
                 {seasons.map(s =>
-                    <option value={[s.id, s.number]} >Season {s.number}</option>
+                    <option 
+                        key={s.id} 
+                        value={[s.id, s.number]} 
+                    >
+                        Season {s.number}
+                    </option>
                 )}
             </select>
 

@@ -17,7 +17,6 @@ const SeasonsContainer = () => {
         const id = value.split(",")[0]
         const number = value.split(",")[1]
 
-        setCurrentSeason(number)
         dispatch(fetchSeasonEpisodes(id))
     }
 
@@ -41,7 +40,10 @@ const SeasonsContainer = () => {
             <StyledSeasonsHeader>
                 <p>Latest Episodes</p>
                 <div>
-                    <select value={currentSeason} onChange={changeSeasonHandler}>
+                    <select value={currentSeason} onChange={(event) => {
+                        changeSeasonHandler(event)
+                        setCurrentSeason(event.target.value.split(",")[1])
+                    }}>
                         {seasons.map(s =>
                             <option
                                 key={s.id}

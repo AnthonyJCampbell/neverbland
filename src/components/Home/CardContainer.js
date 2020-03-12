@@ -12,7 +12,6 @@ const CardContainer = () => {
     }
     return (
         <div>
-            <p>Last Added Shows</p>
             <div>
                 {generateEpisodeCards()}
             </div>

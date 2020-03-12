@@ -3,19 +3,20 @@ import {
     useLocation,
     Link
 } from "react-router-dom";
+import { StyledHeader } from "../styling/Header";
 
 const Header = () => {
     const location = useLocation()
 
     return (
-        <div>
+        <StyledHeader>
             <h1>TV Bland</h1>
             {location.pathname !== "/" ?
-                <Link to="/">BACK</Link>
+                <Link className="backButton" visible={location.pathname !== "/"} to="/">BACK</Link>
                 :
                 null
             }
-        </div>
+        </StyledHeader>
     )
 }
 

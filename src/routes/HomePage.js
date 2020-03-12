@@ -3,7 +3,6 @@ import { useDispatch } from "react-redux";
 import { fetchEpisodes } from "../store/actions/actions";
 
 import HomeHeader from "../components/Home/HomeHeader";
-import SelectCountry from "../components/Home/SelectCountry"
 import CardContainer from "../components/Home/CardContainer";
 
 const HomePage = () => {
@@ -17,8 +16,6 @@ const HomePage = () => {
     return (
         <div>
             <HomeHeader />
-
-            <SelectCountry />
 
             <CardContainer />
         </div>

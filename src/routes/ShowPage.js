@@ -20,10 +20,10 @@ const ShowPage = (props) => {
         <div>
             <ShowHeader />
             <InfoDropDown info={showInfo.network !== undefined && showInfo.network !== null ? {
-                network: showInfo.network.name || "n",
-                schedule: showInfo.schedule || "n",
-                status: showInfo.status || "n" ,
-                genres: showInfo.genres || "n",
+                network: showInfo.network.name || "ABC",
+                schedule: showInfo.schedule || "Monday",
+                status: showInfo.status || "Running" ,
+                genres: showInfo.genres || "Comedy",
             } : {network: "", schedule: {days: []}, status: "", genres: []}} />
             <InfoDropDown info={showInfo._embedded !== undefined && showInfo._embedded.cast.length > 0 ? {
                 cast: showInfo._embedded.cast

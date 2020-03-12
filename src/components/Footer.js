@@ -1,8 +1,12 @@
 import React from "react";
+import { StyledFooter } from "../styling/Footer";
 
 const Footer = () => {
     return (
-        <div>Footer</div>
+        <StyledFooter>
+            <p>Copyright Neverbland Entertainment</p>
+            <p>"NeverBland &amp; Chill"</p>
+        </StyledFooter>
     )
 }
 

@@ -4,6 +4,8 @@ import { fetchSeasonEpisodes } from "../../store/actions/actions";
 
 import placeholder from "../../utils/placeholder.jpg";
 
+import { StyledSeasonsContainer, StyledSeasonsHeader, SeasonEpisodeCard, EpisodeCardContainer } from "../../styling/Show/SeasonsContainer";
+
 const SeasonsContainer = () => {
     const { seasons, seasonEpisodes } = useSelector(state => state.reducer)
     const [currentSeason, setCurrentSeason] = useState(1)
@@ -21,7 +23,7 @@ const SeasonsContainer = () => {
 
     const generateEpisodeCards = () => {
         return seasonEpisodes.map(ep =>
-            <div key={ep.id}>
+            <SeasonEpisodeCard key={ep.id}>
                 <img
                     src={ep.image !== null ?
                         ep.image :
@@ -30,28 +32,32 @@ const SeasonsContainer = () => {
                     alt="Show Poster/Cover"
                 />
                 <p>{ep.number} - {ep.name}</p>
-            </div>
+            </SeasonEpisodeCard>
         )
     }
 
     return (
-        <div>
-            <p>Latest Episodes</p>
-            <select value={currentSeason} onChange={changeSeasonHandler}>
-                {seasons.map(s =>
-                    <option 
-                        key={s.id} 
-                        value={[s.id, s.number]} 
-                    >
-                        Season {s.number}
-                    </option>
-                )}
-            </select>
+        <StyledSeasonsContainer>
+            <StyledSeasonsHeader>
+                <p>Latest Episodes</p>
+                <div>
+                    <select value={currentSeason} onChange={changeSeasonHandler}>
+                        {seasons.map(s =>
+                            <option
+                                key={s.id}
+                                value={[s.id, s.number]}
+                            >
+                                Season {s.number}
+                            </option>
+                        )}
+                    </select>
+                </div>
+            </StyledSeasonsHeader>
 
-            <div>
+            <EpisodeCardContainer>
                 {generateEpisodeCards()}
-            </div>
-        </div>
+            </EpisodeCardContainer>
+        </StyledSeasonsContainer>
     )
 }
 

@@ -8,7 +8,9 @@ const initialState = {
     episodes: [],
     episode_ids: {},
     selectedCountry: "us",
-    seasonIds: [],
+    
+    showInfo: {},
+    seasons: [],
     seasonEpisodes: [],
 };
 
@@ -32,10 +34,11 @@ const myReducer = (state = initialState, action) => {
                 selectedCountry: action.selectedCountry
             };
 
-        case actionCreators.FETCH_SEASON_IDS:
+        case actionCreators.FETCH_SHOW_INFO:
             return {
                 ...state,
-                seasonIds: action.seasonIds
+                showInfo: action.showInfo,
+                seasons: action.showInfo._embedded.seasons
             };
 
         case actionCreators.FETCH_SEASON_EPISODES:

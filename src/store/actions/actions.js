@@ -3,16 +3,14 @@ export const actionCreators = {
     OVERRIDE_EPISODES: "OVERRIDE_EPISODES",
     SELECTING_COUNTRY: "SELECTING_COUNTRY",
 
-    FETCH_SEASON_IDS: "FETCH_SEASON_IDS",
+    FETCH_SHOW_INFO: "FETCH_SHOW_INFO",
     FETCH_SEASON_EPISODES: "FETCH_SEASON_EPISODES",
 };
 
 
 export const fetchEpisodes = (selectedCountry = "us", override = false) => (dispatch) => {
     fetch(`http://api.tvmaze.com/schedule?country=${selectedCountry}`)
-        .then((response) => {
-            return response.json();
-        })
+        .then((response) => response.json())
         .then((data) => {
             if (!override) {
                 dispatch({
@@ -29,23 +27,19 @@ export const fetchEpisodes = (selectedCountry = "us", override = false) => (disp
         .catch((error) => {
             console.log(error)
         })
-
 };
 
-export const fetchSeasonInfo = (showId = 4344) => (dispatch) => {
-    // console.log("here")
-    fetch(`http://api.tvmaze.com/shows/${showId}/seasons`)
-        .then((response) => {
-            return response.json();
-        })
+export const fetchShowInfo = (showId) => (dispatch) => {
+    fetch(`http://api.tvmaze.com/shows/${showId}?embed=seasons`)
+        .then((response) => response.json())
         .then((data) => {
-            const seasonIds = data.map(season => {return {id: season.id, seasonNumber: season.number}})
             dispatch({
-                type: actionCreators.FETCH_SEASON_IDS,
-                seasonIds
+                type: actionCreators.FETCH_SHOW_INFO,
+                showInfo: data
             })
+            const seasons = data._embedded.seasons
             // Call fetchSeasonEpisodes with last entry in the array (i.e. the most recent one)
-            dispatch(fetchSeasonEpisodes(seasonIds[seasonIds.length - 1].id))
+            dispatch(fetchSeasonEpisodes(seasons[seasons.length - 1].id))
 
         })
         .catch((error) => {
@@ -55,9 +49,7 @@ export const fetchSeasonInfo = (showId = 4344) => (dispatch) => {
 
 export const fetchSeasonEpisodes = (seasonId = 13440) => (dispatch) => {
     fetch(`http://api.tvmaze.com/seasons/${seasonId}/episodes`)
-        .then((response) => {
-            return response.json();
-        })
+        .then((response) => response.json())
         .then((data) => {
             dispatch({
                 type: actionCreators.FETCH_SEASON_EPISODES,

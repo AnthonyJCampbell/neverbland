@@ -9,14 +9,22 @@ const EpisodeCard = ({ episode }) => {
     return (
         <div>
             <img
-                src={show.image.medium ? show.image.medium : placeholder}
+                src={show.image !== null && show.image.medium ? 
+                    show.image.medium : 
+                    placeholder
+                }
                 alt="Show Poster/Cover"
             />
             {show.rating.average !== null ?
                 <p>{show.rating.average}/10</p> :
                 null
             }
-            <Link to={`/show/${show.id}`}>{show.name}</Link>
+            <Link to={{
+                pathname: `/show/${show.id}`,
+                state: {
+                    show
+                }
+            }}>{show.name}</Link>
             <br />
         </div>
     )

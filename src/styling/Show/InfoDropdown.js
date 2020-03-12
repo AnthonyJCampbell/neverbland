@@ -13,11 +13,22 @@ export const StyledInfoDropdown = styled.div`
     &:hover {
         border-color: #26272C;
     }
+
+    @media (min-width: 600px) {
+        text-align: center;
+        border: none;
+    }
 `;
 
 export const DropDownContainer = styled.div`
+    max-width: 960px;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
+
+    @media (min-width: 600px) {
+        flex-direction: row;
+    }
 `;
 
 export const DropdownList = styled.div`

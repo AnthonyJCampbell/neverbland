@@ -1,10 +1,6 @@
 import styled from "styled-components";
 import { styleConstants } from "../constants";
 
-export const StyledSeasonsContainer = styled.div`
-   
-`;
-
 export const StyledSeasonsHeader = styled.div`
     margin-bottom: 0px; 
     display: flex;
@@ -31,7 +27,6 @@ export const StyledSeasonsHeader = styled.div`
             padding: .6em .6em .5em .8em;
             border-radius: 8px;
             &:hover { 
-                /* border: 1px solid #fff; */
                 border-bottom: 3px solid #ddd;
             }
         }

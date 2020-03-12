@@ -4,7 +4,7 @@ import { fetchSeasonEpisodes } from "../../store/actions/actions";
 
 import placeholder from "../../utils/placeholder.jpg";
 
-import { StyledSeasonsContainer, StyledSeasonsHeader, SeasonEpisodeCard, EpisodeCardContainer } from "../../styling/Show/SeasonsContainer";
+import { StyledSeasonsHeader, SeasonEpisodeCard, EpisodeCardContainer } from "../../styling/Show/SeasonsContainer";
 
 const SeasonsContainer = () => {
     const { seasons, seasonEpisodes } = useSelector(state => state.reducer)
@@ -15,7 +15,6 @@ const SeasonsContainer = () => {
     const changeSeasonHandler = (event) => {
         const { value } = event.target;
         const id = value.split(",")[0]
-        const number = value.split(",")[1]
 
         dispatch(fetchSeasonEpisodes(id))
     }
@@ -36,7 +35,7 @@ const SeasonsContainer = () => {
     }
 
     return (
-        <StyledSeasonsContainer>
+        <div>
             <StyledSeasonsHeader>
                 <p>Latest Episodes</p>
                 <div>
@@ -59,7 +58,7 @@ const SeasonsContainer = () => {
             <EpisodeCardContainer>
                 {generateEpisodeCards()}
             </EpisodeCardContainer>
-        </StyledSeasonsContainer>
+        </div>
     )
 }
 

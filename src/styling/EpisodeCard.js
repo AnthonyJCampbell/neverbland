@@ -30,6 +30,18 @@ export const StyledEpisodeCard = styled.div`
     &:hover {
         transform: scale(1.025)
     }
+    @media (min-width: 600px) {
+        width: 29%;
+        height: 320px;
+    }
+
+    @media (min-width: 900px) {
+        width: 22%;
+    }
+
+    @media (min-width: 1300px) {
+        width: 18%;
+    }
 `;
 
 export const StyledLink = styled(Link)`

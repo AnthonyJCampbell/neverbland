@@ -10,12 +10,15 @@ const Header = () => {
 
     return (
         <StyledHeader>
-            <h1>TV Bland</h1>
-            {location.pathname !== "/" ?
-                <Link className="backButton" to="/">BACK</Link>
-                :
-                null
-            }
+            <div>
+
+                <h1>TV Bland</h1>
+                {location.pathname !== "/" ?
+                    <Link className="backButton" to="/">BACK</Link>
+                    :
+                    null
+                }
+            </div>
         </StyledHeader>
     )
 }

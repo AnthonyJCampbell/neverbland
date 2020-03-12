@@ -6,6 +6,7 @@ export const StyledSelectCountry = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    max-width: 960px;
 
     p {
         padding: 0 4px;

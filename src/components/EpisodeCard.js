@@ -3,11 +3,13 @@ import { Link } from "react-router-dom";
 
 import placeholder from "../utils/placeholder.jpg";
 
+import { StyledEpisodeCard, StyledLink } from "../styling/EpisodeCard";
+
 const EpisodeCard = ({ episode }) => {
     const { show } = episode;
 
     return (
-        <div>
+        <StyledEpisodeCard>
             <img
                 src={show.image !== null && show.image.medium ? 
                     show.image.medium : 
@@ -16,17 +18,18 @@ const EpisodeCard = ({ episode }) => {
                 alt="Show Poster/Cover"
             />
             {show.rating.average !== null ?
-                <p>{show.rating.average}/10</p> :
+                <p>Rating: {show.rating.average}/10</p> :
                 null
             }
-            <Link to={{
+            <StyledLink to={{
                 pathname: `/show/${show.id}`,
                 state: {
                     show
                 }
-            }}>{show.name}</Link>
-            <br />
-        </div>
+            }}>
+                {show.name}
+            </StyledLink>
+        </StyledEpisodeCard>
     )
 }
 

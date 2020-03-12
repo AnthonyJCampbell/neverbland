@@ -2,6 +2,8 @@ import React from "react";
 import { useSelector } from "react-redux";
 import EpisodeCard from "../EpisodeCard";
 
+import { StyledCardContainer } from "../../styling/Home/CardContainer";
+
 const CardContainer = () => {
     const { episodes } = useSelector(state => state.reducer)
 
@@ -11,11 +13,9 @@ const CardContainer = () => {
         )
     }
     return (
-        <div>
-            <div>
-                {generateEpisodeCards()}
-            </div>
-        </div>
+        <StyledCardContainer>
+            {generateEpisodeCards()}
+        </StyledCardContainer>
     )
 }
 
